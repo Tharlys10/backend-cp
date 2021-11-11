@@ -8,7 +8,7 @@ import {
 import { v4 as uuid } from 'uuid';
 
 @Entity('cities')
-class User {
+class City {
   @PrimaryColumn()
   id: string;
 
@@ -31,4 +31,4 @@ class User {
   }
 }
 
-export { User };
+export { City };
