@@ -1,0 +1,25 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentation Test Compass UOL",
+    "description": "This is an API Test Compass UOL",
+    "version": "1.0.0",
+    "contact": {
+      "email": "tharlys2015c@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333/api",
+      "description": "API development server"
+    }
+  ],
+  "paths": {
+    
+  },
+  "components": {
+    "schemas": {
+      
+    }
+  }
+}
