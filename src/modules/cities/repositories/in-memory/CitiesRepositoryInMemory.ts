@@ -20,7 +20,7 @@ class CitiesRepositoryInMemory implements ICitiesRepository {
     }
 
     if (state) {
-      cities = cities.filter((city) => (city.state = state));
+      cities = cities.filter((city) => city.state === state);
     }
 
     const total = this.cities.length;
