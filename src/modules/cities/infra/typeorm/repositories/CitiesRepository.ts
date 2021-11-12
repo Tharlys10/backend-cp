@@ -11,10 +11,10 @@ class CitiesRepository implements ICitiesRepository {
   }
 
   async find(
-    name: string,
-    state: string,
     limit: number = 10,
-    page: number = 1
+    page: number = 1,
+    name?: string,
+    state?: string
   ): Promise<{ cities: City[]; total: number }> {
     const cities_query = this.repository
       .createQueryBuilder('cities')

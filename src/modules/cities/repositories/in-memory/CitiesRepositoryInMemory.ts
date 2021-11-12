@@ -6,10 +6,10 @@ class CitiesRepositoryInMemory implements ICitiesRepository {
   private cities: City[] = [];
 
   async find(
-    name: string,
-    state: string,
     limit: number = 10,
-    page: number = 1
+    page: number = 1,
+    name?: string,
+    state?: string
   ): Promise<{ cities: City[]; total: number }> {
     const total = this.cities.length;
 

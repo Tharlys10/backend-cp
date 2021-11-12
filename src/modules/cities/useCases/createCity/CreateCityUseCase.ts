@@ -16,10 +16,10 @@ class CreateCityUseCase {
     const page = 1;
 
     const { cities: city_exists_in_state } = await this.citiesRepository.find(
-      name,
-      state,
       limit,
-      page
+      page,
+      name,
+      state
     );
 
     if (city_exists_in_state.length) {
