@@ -1,7 +1,8 @@
 import { City } from '@modules/cities/infra/typeorm/entities/City';
 import { ICitiesRepository } from '@modules/cities/repositories/ICitiesRepository';
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
+@injectable()
 class FindCitiesUseCase {
   constructor(
     @inject('CitiesRepository')
