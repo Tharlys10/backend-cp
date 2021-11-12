@@ -10,7 +10,9 @@ import createConnection from '@shared/infra/typeorm';
 
 import { router } from './routes';
 
-// createConnection();
+import '@shared/container';
+
+createConnection();
 
 const app = express();
 

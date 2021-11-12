@@ -1,7 +1,7 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "localhost",
+  "host": "compass-uol-database",
   "username": "developer",
   "password": "dev123456",
   "database": "compass_uol",

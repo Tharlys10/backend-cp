@@ -11,19 +11,23 @@ class CitiesRepositoryInMemory implements ICitiesRepository {
     limit: number = 10,
     page: number = 1
   ): Promise<{ cities: City[]; total: number }> {
-    let cities = this.cities.splice((page - 1) * limit, limit);
+    const total = this.cities.length;
+
+    let cities = this.cities;
 
     if (name) {
       cities = cities.filter(
-        (city) => city.name.toLowerCase().indexOf(name) > -1
+        (city) => city.name.toLowerCase().indexOf(name.toLowerCase()) > -1
       );
     }
 
     if (state) {
-      cities = cities.filter((city) => city.state === state);
+      cities = cities.filter(
+        (city) => city.state.toLowerCase() === state.toLowerCase()
+      );
     }
 
-    const total = this.cities.length;
+    cities = cities.splice((page - 1) * limit, limit);
 
     return { cities, total };
   }
