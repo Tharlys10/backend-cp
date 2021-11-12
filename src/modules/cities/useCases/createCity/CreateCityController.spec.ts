@@ -27,4 +27,19 @@ describe('Create City Controller', () => {
 
     expect(response.status).toBe(201);
   });
+
+  it('should not be possible to register if the city already exists in this state', async () => {
+    await request(app).post('/api/cities').send({
+      name: 'Garulhos',
+      state: 'São Paulo',
+    });
+
+    const response = await request(app).post('/api/cities').send({
+      name: 'Garulhos',
+      state: 'São Paulo',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body.message).toEqual('City already exists in this state');
+  });
 });
