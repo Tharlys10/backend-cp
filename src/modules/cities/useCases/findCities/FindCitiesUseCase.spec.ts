@@ -41,4 +41,27 @@ describe('Find Cities', () => {
     expect(total).toBe(3);
     expect(cities.length).toBe(2);
   });
+
+  it('should be able search city by name', async () => {
+    await citiesRepositoryInMemory.create({
+      name: 'Las Vegas',
+      state: 'Nevada',
+    });
+
+    const name = 'Las Vegas';
+    const state = undefined;
+    const limit = 20;
+    const page = 1;
+
+    const { cities } = await findCitiesUseCase.execute(
+      limit,
+      page,
+      name,
+      state
+    );
+
+    expect(cities.length).toBe(1);
+    expect(cities[0].name).toEqual(name);
+    expect(cities[0].state).toEqual('Nevada');
+  });
 });
