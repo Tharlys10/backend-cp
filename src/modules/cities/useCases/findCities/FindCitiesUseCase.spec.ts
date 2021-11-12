@@ -64,4 +64,27 @@ describe('Find Cities', () => {
     expect(cities[0].name).toEqual(name);
     expect(cities[0].state).toEqual('Nevada');
   });
+
+  it('should be able search city by state', async () => {
+    await citiesRepositoryInMemory.create({
+      name: 'Detroit',
+      state: 'Michigan',
+    });
+
+    const name = undefined;
+    const state = 'Michigan';
+    const limit = 20;
+    const page = 1;
+
+    const { cities } = await findCitiesUseCase.execute(
+      limit,
+      page,
+      name,
+      state
+    );
+
+    expect(cities.length).toBe(1);
+    expect(cities[0].name).toEqual('Detroit');
+    expect(cities[0].state).toEqual(state);
+  });
 });
