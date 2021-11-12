@@ -22,10 +22,12 @@ export class CreateCities1636671000536 implements MigrationInterface {
           {
             name: 'created_at',
             type: 'timestamp',
+            default: 'now()',
           },
           {
             name: 'updated_at',
             type: 'timestamp',
+            default: 'now()',
           },
         ],
       })
