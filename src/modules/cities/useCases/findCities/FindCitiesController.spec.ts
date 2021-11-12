@@ -55,4 +55,21 @@ describe('Find Cities Controller', () => {
     expect(response.status).toBe(200);
     expect(response.body.cities[0].name).toEqual(name);
   });
+
+  it('should be able search city by state', async () => {
+    const name = 'San Francisco';
+    const state = 'California';
+
+    await request(app).post('/api/cities').send({
+      name,
+      state,
+    });
+
+    const response = await request(app)
+      .get('/api/cities')
+      .query({ limit: 1, page: 1, state });
+
+    expect(response.status).toBe(200);
+    expect(response.body.cities[0].state).toEqual(state);
+  });
 });
