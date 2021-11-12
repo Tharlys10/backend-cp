@@ -29,7 +29,9 @@ class CitiesRepository implements ICitiesRepository {
       cities_query.where('state = :state', { state });
     }
 
-    const [cities, total] = await cities_query.getManyAndCount();
+    const [cities, total] = await cities_query
+      .orderBy({ name: 'ASC', state: 'ASC' })
+      .getManyAndCount();
 
     return { cities, total };
   }
