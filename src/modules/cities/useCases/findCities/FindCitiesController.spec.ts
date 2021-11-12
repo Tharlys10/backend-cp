@@ -38,4 +38,21 @@ describe('Find Cities Controller', () => {
     expect(response.body.total).toBe(2);
     expect(response.body.cities[0].name).toEqual('Chicago');
   });
+
+  it('should be able search city by name', async () => {
+    const name = 'Las Vegas';
+    const state = 'Nevada';
+
+    await request(app).post('/api/cities').send({
+      name,
+      state,
+    });
+
+    const response = await request(app)
+      .get('/api/cities')
+      .query({ limit: 1, page: 1, name });
+
+    expect(response.status).toBe(200);
+    expect(response.body.cities[0].name).toEqual(name);
+  });
 });
