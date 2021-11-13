@@ -14,8 +14,8 @@ class CreateClientController {
         full_name: yup.string().required(),
         gender: yup.string().required(),
         date_nasc: yup.date().required(),
-        age: yup.number().required(),
-        city_id: yup.string().required(),
+        age: yup.number().required().min(0),
+        city_id: yup.string().uuid().required(),
       });
 
       await schema.validate(request.body);
