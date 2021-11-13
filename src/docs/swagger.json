@@ -105,6 +105,56 @@
           }
         }
       }
+    },
+    "/clients": {
+      "post": {
+        "summary": "Create client",
+        "description": "Create new client",
+        "tags": [
+          "Clients"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "full_name": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "date_nasc": {
+                    "type": "string",
+                    "default": "2021-11-01"
+                  },
+                  "age": {
+                    "type": "number"
+                  },
+                  "city_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   },
   "components": {
