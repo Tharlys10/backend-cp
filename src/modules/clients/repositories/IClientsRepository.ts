@@ -11,6 +11,7 @@ interface IClientsRepository {
   findById(id: string): Promise<Client | undefined>;
   create(data: ICreateClientDTO): Promise<Client>;
   update(id: string, data: IUpdateClientDTO): Promise<Client>;
+  delete(id: string): Promise<void>;
 }
 
 export { IClientsRepository };
