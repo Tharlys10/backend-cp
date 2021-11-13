@@ -20,7 +20,7 @@ export class CreateClients1636773634669 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'data_nasc',
+            name: 'date_nasc',
             type: 'date',
           },
           {
