@@ -1,5 +1,5 @@
 interface IUpdateClientDTO {
-  name: string;
+  full_name: string;
 }
 
 export { IUpdateClientDTO };
