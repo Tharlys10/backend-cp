@@ -7,8 +7,8 @@ class ClientsRepositoryInMemory implements IClientsRepository {
   private clients: Client[] = [];
 
   async find(
-    limit: number,
-    page: number,
+    limit: number = 10,
+    page: number = 1,
     name?: string
   ): Promise<{ clients: Client[]; total: number }> {
     const total = this.clients.length;
