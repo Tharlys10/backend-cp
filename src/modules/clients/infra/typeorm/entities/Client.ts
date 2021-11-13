@@ -3,6 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
@@ -29,6 +30,7 @@ class Client {
   city_id: string;
 
   @ManyToOne(() => City, (city) => city.clients)
+  @JoinColumn({ name: 'city_id' })
   city: City;
 
   @CreateDateColumn()
