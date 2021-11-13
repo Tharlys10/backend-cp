@@ -27,16 +27,29 @@ describe('Create Client Controller', () => {
 
     const city_id = response_city.body.id;
 
-    const response = await request(app)
-      .post('/api/clients')
-      .send({
-        full_name: 'Fernanda Alícia Costa',
-        gender: 'masculine',
-        date_nasc: new Date('1980-01-23'),
-        age: 41,
-        city_id,
-      });
+    const response = await request(app).post('/api/clients').send({
+      full_name: 'Luana Stella de Paula',
+      gender: 'feminine',
+      date_nasc: '1982-06-17',
+      age: 39,
+      city_id,
+    });
 
     expect(response.status).toBe(201);
+  });
+
+  it('should not be able create new client if city not exists', async () => {
+    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+
+    const response = await request(app).post('/api/clients').send({
+      full_name: 'Sebastião Cauê Alves',
+      gender: 'masculine',
+      date_nasc: '1993-10-20',
+      age: 28,
+      city_id,
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body.message).toEqual('City not found');
   });
 });
