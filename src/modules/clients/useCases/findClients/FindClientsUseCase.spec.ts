@@ -36,4 +36,24 @@ describe('Find Clients', () => {
     expect(total).toBe(2);
     expect(clients.length).toBe(2);
   });
+
+  it('should be able search client by name', async () => {
+    const full_name = 'Erick Danilo Hugo Moraes';
+
+    await clientsRepositoryInMemory.create({
+      full_name,
+      gender: 'masculine',
+      date_nasc: new Date('2015-08-20'),
+      age: 6,
+      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+    });
+
+    const { clients, total } = await findClientsUseCase.execute(
+      10,
+      1,
+      full_name
+    );
+
+    expect(clients[0].full_name).toBe(full_name);
+  });
 });
