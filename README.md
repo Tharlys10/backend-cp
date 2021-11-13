@@ -22,8 +22,8 @@
 
 **RF**
 
-- [] Deve ser possivel cadastrar um novo cliente;
+- [x] Deve ser possivel cadastrar um novo cliente;
 
 **RN**
 
-- [] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
+- [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
