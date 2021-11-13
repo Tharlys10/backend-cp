@@ -17,3 +17,13 @@
 - [x] Deve ser possivel buscar todas as cidades;
 - [x] Deve ser possivel buscar a cidade pelo nome;
 - [x] Deve ser possivel buscar a cidade pelo estado;
+
+# Cadastro de Cliente
+
+**RF**
+
+- [] Deve ser possivel cadastrar um novo cliente;
+
+**RN**
+
+- [] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
