@@ -321,10 +321,10 @@
             "type": "string"
           },
           "created_at": {
-            "type": "timezone"
+            "type": "timestamp"
           },
           "updated_at": {
-            "type": "timezone"
+            "type": "timestamp"
           }
         }
       }
