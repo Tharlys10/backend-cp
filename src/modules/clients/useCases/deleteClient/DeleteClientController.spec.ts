@@ -43,4 +43,13 @@ describe('Delete Client Controller', () => {
 
     expect(response.status).toBe(200);
   });
+
+  it('should not be able delete client not found', async () => {
+    const id = '9382c3b8-14b5-48a5-b416-915f538d9353';
+
+    const response = await request(app).delete(`/api/clients/${id}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toEqual('Client not found');
+  });
 });
