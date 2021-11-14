@@ -22,6 +22,10 @@ class CreateClientUseCase {
     age,
     city_id,
   }: ICreateClientDTO): Promise<Client> {
+    if (date_nasc > new Date()) {
+      throw new AppError('date of birth greater than today date');
+    }
+
     const city_already_exist = await this.citiesRepository.findById(city_id);
 
     if (!city_already_exist) {

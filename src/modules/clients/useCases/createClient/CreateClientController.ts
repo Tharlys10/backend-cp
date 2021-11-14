@@ -27,10 +27,6 @@ class CreateClientController {
       throw new AppError('gender not supported (masculine or feminine)', 422);
     }
 
-    if (new Date(date_nasc) > new Date()) {
-      throw new AppError('date of birth greater than today date', 422);
-    }
-
     const createClientUseCase = container.resolve(CreateClientUseCase);
 
     const client = await createClientUseCase.execute({

@@ -27,6 +27,7 @@
 **RN**
 
 - [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
+- [x] So deve ser possivel cadastrar um novo cliente se a data de nascimento for menor ou igual a data atual;
 
 # Listagem de Clientes
 

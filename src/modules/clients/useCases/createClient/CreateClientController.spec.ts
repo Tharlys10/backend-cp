@@ -81,7 +81,7 @@ describe('Create Client Controller', () => {
       city_id,
     });
 
-    expect(response.status).toBe(422);
+    expect(response.status).toBe(400);
     expect(response.body.message).toEqual(
       'date of birth greater than today date'
     );

@@ -34,6 +34,20 @@ describe('Create Client', () => {
     expect(client).toHaveProperty('id');
   });
 
+  it('should not be able create new client if date of birth greater than today date', async () => {
+    const city_id = '5b5ade31-4400-4309-be97-a3583bc24234';
+
+    await expect(
+      createClientUseCase.execute({
+        full_name: 'Vicente José Fábio Ferreira',
+        gender: 'masculine',
+        date_nasc: new Date('2050-08-10'),
+        age: 20,
+        city_id,
+      })
+    ).rejects.toEqual(new AppError('date of birth greater than today date'));
+  });
+
   it('should not be able create new client if city not exists', async () => {
     const city_id = '5b5ade31-4400-4309-be97-a3583bc24234';
 
