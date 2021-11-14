@@ -29,6 +29,16 @@
 - [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
 - [x] So deve ser possivel cadastrar um novo cliente se a data de nascimento for menor ou igual a data atual;
 
+# Atualizar Dados do Cliente
+
+**RF**
+
+- [x] Deve ser possivel atualizar o nome do cliente;
+
+**RN**
+
+- [x] So deve ser possivel atualizar o nome do cliente se ele existir;
+
 # Listagem de Clientes
 
 **RF**
