@@ -1,67 +1,55 @@
-# Backend CP
+# Backend CP Node
 
-# Cadastro de Cidade
+## Descrição
 
-**RF**
+Backend CP Node é uma API REST desenvolvida no intuito para avaliação de conhecimento.
 
-- [x] Deve ser possivel cadastrar uma nova cidade;
+A API foi desenvolvida em NODE JS, framework Express, banco de dados PostgresSQL, Swagger para documentação.
 
-**RN**
+Obs: A instalação do banco de dados esta provido no arquivo docker-compose que está na raiz do projeto.
 
-- [x] So deve ser possivel cadastrar uma cidade se ela não existir no estado;
+## Relacionamento
 
-# Listagem de Cidades
+<img src=".github/assets/schema-db.png" alt="Schema DB">
 
-**RF**
+## Instação e execução
 
-- [x] Deve ser possivel buscar todas as cidades;
-- [x] Deve ser possivel buscar a cidade pelo nome;
-- [x] Deve ser possivel buscar a cidade pelo estado;
+- Clone o repositório:
 
-# Cadastro de Cliente
+```sh
+  git clone https://github.com/Tharlys10/backend-cp-node.git && cd backend-cp-node
+```
 
-**RF**
+- Instale as depentencias
 
-- [x] Deve ser possivel cadastrar um novo cliente;
+```sh
+  yarn ou npm install
+```
 
-**RN**
+- Build a imagem do banco junto da imagem API
 
-- [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
-- [x] So deve ser possivel cadastrar um novo cliente se a data de nascimento for menor ou igual a data atual;
+```sh
+  docker-compose -f docker-compose.dev.yml build --force-rm --no-cach
+```
 
-# Atualizar Dados do Cliente
+- Levante os container
 
-**RF**
+```sh
+  docker-compose -f docker-compose.dev.yml up -d
+```
 
-- [x] Deve ser possivel atualizar o nome do cliente;
+- Rodando migrations
 
-**RN**
+```sh
+  yarn typeorm migration:run ou npm run typeorm migration:run
+```
 
-- [x] So deve ser possivel atualizar o nome do cliente se ele existir;
+OBS: Para testar se tudo está funcionando basta acessar em seu navegador http://localhost:3333/api/docs irá aparacer a documentação no swagger;
 
-# Listagem de Clientes
+## Testes
 
-**RF**
+- Roda todos os teste
 
-- [x] Deve ser possivel buscar todos os clientes;
-- [x] Deve ser possivel buscar o cliente pelo nome;
-
-# Buscar Clientes pelo ID
-
-**RF**
-
-- [x] Deve ser possivel buscar um cliente pelo id;
-
-**RN**
-
-- [x] So deve ser possivel buscar um cliente pelo id se ele existir;
-
-# Delete Cliente
-
-**RF**
-
-- [x] Deve ser possivel remove um cliente pelo id;
-
-**RN**
-
-- [x] So deve ser possivel remove um cliente pelo id se ele existir;
+```sh
+  yarn test ou npm run test
+```
