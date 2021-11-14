@@ -52,6 +52,20 @@ class CitiesRepository implements ICitiesRepository {
     return cities;
   }
 
+  async findByNameAndSate(
+    name: string,
+    state: string
+  ): Promise<City | undefined> {
+    const city = await this.repository.findOne({
+      where: {
+        name,
+        state,
+      },
+    });
+
+    return city;
+  }
+
   async create({ name, state }: ICreateCityDTO): Promise<City> {
     const city = this.repository.create({
       name,
