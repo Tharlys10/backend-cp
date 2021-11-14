@@ -27,10 +27,6 @@ class CreateClientController {
       throw new AppError('gender not supported (masculine or feminine)', 422);
     }
 
-    if (date_nasc.length != 10) {
-      throw new AppError('format birth date incorrect', 422);
-    }
-
     if (new Date(date_nasc) > new Date()) {
       throw new AppError('date of birth greater than today date', 422);
     }

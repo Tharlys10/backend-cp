@@ -52,4 +52,38 @@ describe('Create Client Controller', () => {
     expect(response.status).toBe(400);
     expect(response.body.message).toEqual('City not found');
   });
+
+  it('should not be able create new client if gender incorrect', async () => {
+    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+
+    const response = await request(app).post('/api/clients').send({
+      full_name: 'Elias Gustavo Gael dos Santos',
+      gender: 'incorrect',
+      date_nasc: '2000-01-25',
+      age: 21,
+      city_id,
+    });
+
+    expect(response.status).toBe(422);
+    expect(response.body.message).toEqual(
+      'gender not supported (masculine or feminine)'
+    );
+  });
+
+  it('should not be able create new client if date of birth greater than today date', async () => {
+    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+
+    const response = await request(app).post('/api/clients').send({
+      full_name: 'Emanuelly Amanda da Silva',
+      gender: 'feminine',
+      date_nasc: '2050-08-10',
+      age: 20,
+      city_id,
+    });
+
+    expect(response.status).toBe(422);
+    expect(response.body.message).toEqual(
+      'date of birth greater than today date'
+    );
+  });
 });
