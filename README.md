@@ -28,9 +28,19 @@
 
 - [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
 
-# Listagem de Clients
+# Listagem de Clientes
 
 **RF**
 
 - [x] Deve ser possivel buscar todos os clientes;
 - [x] Deve ser possivel buscar o cliente pelo nome;
+
+# Buscar Clientes pelo ID
+
+**RF**
+
+- [x] Deve ser possivel buscar um cliente pelo id;
+
+**RN**
+
+- [x] So deve ser possivel buscar um cliente pelo id se ele existir;
