@@ -33,7 +33,7 @@ describe('Find Client By ID', () => {
     const id = '853af9bd-d247-4133-85dd-f9091a79eeb9';
 
     await expect(findClientByIdUseCase.execute(id)).rejects.toEqual(
-      new AppError('Client not found')
+      new AppError('Client not found', 404)
     );
   });
 });

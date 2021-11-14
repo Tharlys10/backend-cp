@@ -44,4 +44,13 @@ describe('Find Client By Id Controller', () => {
     expect(response.status).toBe(200);
     expect(response.body.id).toEqual(id);
   });
+
+  it('should not be able search client by id not found', async () => {
+    const id = 'cccd47d9-5384-4232-96ba-50b74a6d5725';
+
+    const response = await request(app).get(`/api/clients/${id}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toEqual('Client not found');
+  });
 });

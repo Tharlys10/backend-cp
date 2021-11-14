@@ -49,7 +49,7 @@ describe('Create Client Controller', () => {
       city_id,
     });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(404);
     expect(response.body.message).toEqual('City not found');
   });
 

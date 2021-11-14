@@ -45,6 +45,6 @@ describe('Create Client', () => {
         age: 20,
         city_id,
       })
-    ).rejects.toEqual(new AppError('City not found'));
+    ).rejects.toEqual(new AppError('City not found', 404));
   });
 });
