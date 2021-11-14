@@ -2,11 +2,11 @@
 
 ## Descrição
 
-Backend CP Node é uma API REST desenvolvida no intuito para avaliação de conhecimento.
+Backend CP Node é uma API REST desenvolvida no intuito de avaliação de conhecimentos.
 
-A API foi desenvolvida em NODE JS, framework Express, banco de dados PostgresSQL, Swagger para documentação.
+A API foi desenvolvida em NODE JS junto do framework Express, banco de dados PostgresSQL e Swagger para documentação.
 
-Obs: A instalação do banco de dados esta provido no arquivo docker-compose que está na raiz do projeto.
+Obs: A instalação do banco de dados está provido no arquivo docker-compose.dev que está na raiz do projeto.
 
 ## Relacionamento
 
@@ -53,3 +53,14 @@ OBS: Para testar se tudo está funcionando basta acessar em seu navegador http:/
 ```sh
   yarn test ou npm run test
 ```
+
+## Regras base
+
+- [x] Cadastrar cidade;
+- [x] Consultar cidade pelo nome;
+- [x] Consultar cidade pelo estado;
+- [x] Cadastrar cliente;
+- [x] Consultar cliente pelo nome;
+- [x] Consultar cliente pelo Id;
+- [x] Remover cliente;
+- [x] Alterar o nome do cliente;
