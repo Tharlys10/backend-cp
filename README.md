@@ -27,3 +27,10 @@
 **RN**
 
 - [x] So deve ser possivel cadastrar um novo cliente se a cidade onde ele mora existir;
+
+# Listagem de Clients
+
+**RF**
+
+- [x] Deve ser possivel buscar todos os clientes;
+- [x] Deve ser possivel buscar o cliente pelo nome;

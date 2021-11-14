@@ -48,11 +48,7 @@ describe('Find Clients', () => {
       city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
     });
 
-    const { clients, total } = await findClientsUseCase.execute(
-      10,
-      1,
-      full_name
-    );
+    const { clients } = await findClientsUseCase.execute(10, 1, full_name);
 
     expect(clients[0].full_name).toBe(full_name);
   });
