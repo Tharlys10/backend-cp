@@ -28,7 +28,7 @@ describe('Create City Controller', () => {
     expect(response.status).toBe(201);
   });
 
-  it('should not be possible to register if the city already exists in this state', async () => {
+  it('should not be able possible to register if the city already exists in this state', async () => {
     await request(app).post('/api/cities').send({
       name: 'Chicago',
       state: 'Illinois',

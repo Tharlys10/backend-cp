@@ -1,7 +1,10 @@
+import { Client } from '@modules/clients/infra/typeorm/entities/Client';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -17,6 +20,9 @@ class City {
 
   @Column()
   state: string;
+
+  @OneToMany(() => Client, (client) => client.city)
+  clients: Client[];
 
   @CreateDateColumn()
   created_at: Date;
