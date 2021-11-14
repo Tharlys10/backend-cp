@@ -30,4 +30,12 @@ describe('Delete Client', () => {
 
     expect(client_already_exist_check).toBeUndefined();
   });
+
+  it('should not be able delete client not found', async () => {
+    const id = '853af9bd-d247-4133-85dd-f9091a79eeb9';
+
+    await expect(deleteClientUseCase.execute(id)).rejects.toEqual(
+      new AppError('Client not found', 404)
+    );
+  });
 });
