@@ -230,6 +230,34 @@
             "description": "Internal server error"
           }
         }
+      },
+      "delete": {
+        "summary": "Delete client",
+        "description": "Delete client by ID (uuid)",
+        "tags": [
+          "Clients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Client id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
       }
     }
   },

@@ -45,3 +45,13 @@
 **RN**
 
 - [x] So deve ser possivel buscar um cliente pelo id se ele existir;
+
+# Delete Cliente
+
+**RF**
+
+- [x] Deve ser possivel remove um cliente pelo id;
+
+**RN**
+
+- [x] So deve ser possivel remove um cliente pelo id se ele existir;
