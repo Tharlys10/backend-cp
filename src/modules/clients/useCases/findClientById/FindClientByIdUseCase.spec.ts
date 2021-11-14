@@ -1,4 +1,5 @@
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
+import { AppError } from '@shared/errors/AppError';
 import { FindClientByIdUseCase } from './FindClientByIdUseCase';
 
 let clientsRepositoryInMemory: ClientsRepositoryInMemory;
@@ -26,5 +27,13 @@ describe('Find Client By ID', () => {
     const client = await findClientByIdUseCase.execute(id);
 
     expect(client).toEqual(clint_create);
+  });
+
+  it('should not be able search client by id not found', async () => {
+    const id = '853af9bd-d247-4133-85dd-f9091a79eeb9';
+
+    await expect(findClientByIdUseCase.execute(id)).rejects.toEqual(
+      new AppError('Client not found')
+    );
   });
 });
