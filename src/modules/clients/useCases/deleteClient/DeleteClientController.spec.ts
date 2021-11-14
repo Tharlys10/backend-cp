@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { v4 as uuid } from 'uuid';
 
 import { app } from '@shared/infra/http/app';
 
@@ -45,7 +46,7 @@ describe('Delete Client Controller', () => {
   });
 
   it('should not be able delete client not found', async () => {
-    const id = '9382c3b8-14b5-48a5-b416-915f538d9353';
+    const id = uuid();
 
     const response = await request(app).delete(`/api/clients/${id}`);
 

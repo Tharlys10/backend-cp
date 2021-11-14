@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 import { UpdateClientUseCase } from './UpdateClientUseCase';
@@ -17,7 +18,7 @@ describe('Update Client', () => {
       gender: 'masculine',
       date_nasc: new Date('2008-11-20'),
       age: 13,
-      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+      city_id: uuid(),
     });
 
     const { id } = clint_create;
@@ -31,7 +32,7 @@ describe('Update Client', () => {
   });
 
   it('should not be able update if client not found', async () => {
-    const id = '16488192-8a47-4c2b-821a-06b16019ee8b';
+    const id = uuid();
     const name_update = 'Nina Alice Rezende';
 
     await expect(

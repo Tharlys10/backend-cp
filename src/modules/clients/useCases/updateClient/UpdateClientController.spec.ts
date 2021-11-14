@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { v4 as uuid } from 'uuid';
 
 import { app } from '@shared/infra/http/app';
 
@@ -50,7 +51,7 @@ describe('Update Client Controller', () => {
   });
 
   it('should not be able update if client not found', async () => {
-    const id = 'e0be350f-f945-4ff8-882e-caf4b5762997';
+    const id = uuid();
     const update_name = 'Sônia Yasmin de Paula';
 
     const response = await request(app).patch(`/api/clients/${id}`).send({

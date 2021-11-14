@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 import { DeleteClientUseCase } from './DeleteClientUseCase';
@@ -17,7 +18,7 @@ describe('Delete Client', () => {
       gender: 'masculine',
       date_nasc: new Date('2010-11-20'),
       age: 11,
-      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+      city_id: uuid(),
     });
 
     const { id } = clint_create;
@@ -32,7 +33,7 @@ describe('Delete Client', () => {
   });
 
   it('should not be able delete client not found', async () => {
-    const id = '853af9bd-d247-4133-85dd-f9091a79eeb9';
+    const id = uuid();
 
     await expect(deleteClientUseCase.execute(id)).rejects.toEqual(
       new AppError('Client not found', 404)

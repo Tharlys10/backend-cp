@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 import { FindClientsUseCase } from './FindClientsUseCase';
 
@@ -16,7 +17,7 @@ describe('Find Clients', () => {
       gender: 'masculine',
       date_nasc: new Date('2010-01-20'),
       age: 11,
-      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+      city_id: uuid(),
     });
 
     await clientsRepositoryInMemory.create({
@@ -24,7 +25,7 @@ describe('Find Clients', () => {
       gender: 'masculine',
       date_nasc: new Date('2000-11-10'),
       age: 21,
-      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+      city_id: uuid(),
     });
 
     const { clients, total } = await findClientsUseCase.execute(
@@ -45,7 +46,7 @@ describe('Find Clients', () => {
       gender: 'masculine',
       date_nasc: new Date('2015-08-20'),
       age: 6,
-      city_id: '16488192-8a47-4c2b-821a-06b16019ee8b',
+      city_id: uuid(),
     });
 
     const { clients } = await findClientsUseCase.execute(10, 1, full_name);
