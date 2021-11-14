@@ -327,6 +327,35 @@
             "type": "timestamp"
           }
         }
+      },
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "date_nasc": {
+            "type": "date"
+          },
+          "age": {
+            "type": "number"
+          },
+          "city_id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "timestamp"
+          },
+          "updated_at": {
+            "type": "timestamp"
+          }
+        }
       }
     }
   }
