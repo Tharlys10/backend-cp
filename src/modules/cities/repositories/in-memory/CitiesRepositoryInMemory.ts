@@ -44,6 +44,17 @@ class CitiesRepositoryInMemory implements ICitiesRepository {
     return cities;
   }
 
+  async findByNameAndSate(
+    name: string,
+    state: string
+  ): Promise<City | undefined> {
+    const city = this.cities.find(
+      (city) => city.name === name && city.state === state
+    );
+
+    return city;
+  }
+
   async create({ name, state }: ICreateCityDTO): Promise<City> {
     const city = new City();
 
