@@ -29,4 +29,15 @@ describe('Update Client', () => {
 
     expect(client.full_name).toEqual(name_update);
   });
+
+  it('should not be able update if client not found', async () => {
+    const id = '16488192-8a47-4c2b-821a-06b16019ee8b';
+    const name_update = 'Nina Alice Rezende';
+
+    await expect(
+      updateClientUseCase.execute(id, {
+        full_name: name_update,
+      })
+    ).rejects.toEqual(new AppError('Client not found', 404));
+  });
 });
