@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { v4 as uuid } from 'uuid';
 
 import { app } from '@shared/infra/http/app';
 
@@ -46,7 +47,7 @@ describe('Find Client By Id Controller', () => {
   });
 
   it('should not be able search client by id not found', async () => {
-    const id = 'cccd47d9-5384-4232-96ba-50b74a6d5725';
+    const id = uuid();
 
     const response = await request(app).get(`/api/clients/${id}`);
 

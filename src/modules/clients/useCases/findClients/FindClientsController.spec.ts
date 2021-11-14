@@ -4,7 +4,6 @@ import { app } from '@shared/infra/http/app';
 
 import createConnection from '@shared/infra/typeorm';
 import { Connection } from 'typeorm';
-import { response } from 'express';
 
 let connection: Connection;
 

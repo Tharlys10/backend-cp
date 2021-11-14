@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { v4 as uuid } from 'uuid';
 
 import { app } from '@shared/infra/http/app';
 
@@ -39,7 +40,7 @@ describe('Create Client Controller', () => {
   });
 
   it('should not be able create new client if city not exists', async () => {
-    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+    const city_id = uuid();
 
     const response = await request(app).post('/api/clients').send({
       full_name: 'Sebastião Cauê Alves',
@@ -54,7 +55,7 @@ describe('Create Client Controller', () => {
   });
 
   it('should not be able create new client if gender incorrect', async () => {
-    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+    const city_id = uuid();
 
     const response = await request(app).post('/api/clients').send({
       full_name: 'Elias Gustavo Gael dos Santos',
@@ -71,7 +72,7 @@ describe('Create Client Controller', () => {
   });
 
   it('should not be able create new client if date of birth greater than today date', async () => {
-    const city_id = '7d81c68c-0cc9-4056-8735-8f0db02e5e6b';
+    const city_id = uuid();
 
     const response = await request(app).post('/api/clients').send({
       full_name: 'Emanuelly Amanda da Silva',

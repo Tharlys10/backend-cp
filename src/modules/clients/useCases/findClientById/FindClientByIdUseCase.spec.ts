@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 import { FindClientByIdUseCase } from './FindClientByIdUseCase';
@@ -30,7 +32,7 @@ describe('Find Client By ID', () => {
   });
 
   it('should not be able search client by id not found', async () => {
-    const id = '853af9bd-d247-4133-85dd-f9091a79eeb9';
+    const id = uuid();
 
     await expect(findClientByIdUseCase.execute(id)).rejects.toEqual(
       new AppError('Client not found', 404)

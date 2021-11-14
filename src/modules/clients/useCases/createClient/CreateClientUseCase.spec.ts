@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { CitiesRepositoryInMemory } from '@modules/cities/repositories/in-memory/CitiesRepositoryInMemory';
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
@@ -35,7 +37,7 @@ describe('Create Client', () => {
   });
 
   it('should not be able create new client if date of birth greater than today date', async () => {
-    const city_id = '5b5ade31-4400-4309-be97-a3583bc24234';
+    const city_id = uuid();
 
     await expect(
       createClientUseCase.execute({
@@ -49,7 +51,7 @@ describe('Create Client', () => {
   });
 
   it('should not be able create new client if city not exists', async () => {
-    const city_id = '5b5ade31-4400-4309-be97-a3583bc24234';
+    const city_id = uuid();
 
     await expect(
       createClientUseCase.execute({
