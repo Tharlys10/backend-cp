@@ -12,17 +12,12 @@ class CreateCityUseCase {
   ) {}
 
   async execute({ name, state }: ICreateCityDTO): Promise<City> {
-    const limit = 1;
-    const page = 1;
-
-    const { cities: city_exists_in_state } = await this.citiesRepository.find(
-      limit,
-      page,
+    const city_exists_in_state = await this.citiesRepository.findByNameAndSate(
       name,
       state
     );
 
-    if (city_exists_in_state.length) {
+    if (city_exists_in_state) {
       throw new AppError('City already exists in this state');
     }
 

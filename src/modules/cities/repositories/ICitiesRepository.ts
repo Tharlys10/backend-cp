@@ -10,6 +10,7 @@ interface ICitiesRepository {
   ): Promise<{ cities: City[]; total: number }>;
   findById(id: string): Promise<City | undefined>;
   findByState(state: string): Promise<City[]>;
+  findByNameAndSate(name: string, state: string): Promise<City | undefined>;
   create(data: ICreateCityDTO): Promise<City>;
 }
 
