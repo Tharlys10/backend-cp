@@ -25,7 +25,7 @@ class CreateClientUseCase {
     const city_already_exist = await this.citiesRepository.findById(city_id);
 
     if (!city_already_exist) {
-      throw new AppError('City not found');
+      throw new AppError('City not found', 404);
     }
 
     const client = await this.clientsRepository.create({
