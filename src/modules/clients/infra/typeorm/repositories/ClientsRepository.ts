@@ -30,7 +30,9 @@ class ClientsRepository implements IClientsRepository {
   }
 
   async findById(id: string): Promise<Client | undefined> {
-    const client = await this.repository.findOne(id);
+    const client = await this.repository.findOne(id, {
+      relations: ['city'],
+    });
 
     return client;
   }
