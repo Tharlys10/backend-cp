@@ -29,7 +29,7 @@ Obs: A instalação do banco de dados está provido no arquivo docker-compose.de
 - Build a imagem do banco junto da imagem API
 
 ```sh
-  docker-compose -f docker-compose.dev.yml build --force-rm --no-cach
+  docker-compose -f docker-compose.dev.yml build --force-rm --no-cache
 ```
 
 - Levante os container
